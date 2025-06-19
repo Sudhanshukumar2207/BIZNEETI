@@ -9,9 +9,9 @@ const NavigationMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleSubmenu = (menuName) => {
-    setActiveSubmenu(activeSubmenu === menuName ? null : menuName);
-  };
+  // const toggleSubmenu = (menuName) => {
+  //   setActiveSubmenu(activeSubmenu === menuName ? null : menuName);
+  // };
 
 
   // Handle window resize
@@ -113,28 +113,29 @@ const NavigationMenu = () => {
           </button>
 
           <ul>
-            <li><a href="#" className="px-4 flex py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Home</a></li>
-            <li><a href="#" className="px-4 flex py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">About Us</a></li>
+            <li><a href="#home" onClick={toggleMenu} className="px-4 flex py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Home</a></li>
+            <li><a href="#aboutus" onClick={toggleMenu} className="px-4 flex py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">About Us</a></li>
             <li>
-              <button
+              {/* <button
                 className="w-full flex justify-between items-center cursor-pointer px-4 py-3 text-white border-b border-gray-600 text-left hover:text-pink-600 transition-colors duration-300"
                 onClick={() => toggleSubmenu('pages')}
-              >
-                Service
-                <PlusIcon isOpen={activeSubmenu === 'pages'} />
-              </button>
-              <ul className={`bg-transparent overflow-hidden transition-all duration-500 ${
+              > */}
+              <a href="#service" onClick={toggleMenu} className="px-4 flex py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Service</a>
+                
+                {/* <PlusIcon isOpen={activeSubmenu === 'pages'} />
+              </button> */}
+              {/* <ul className={`bg-transparent overflow-hidden transition-all duration-500 ${
                 activeSubmenu === 'pages' ? 'max-h-96' : 'max-h-0'
               }`}>
                 <li><a href="#" className="block px-11 py-3 text-black bg-gray-300 border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Business Solution</a></li>
                 <li><a href="#" className="block px-11 py-3 text-black bg-gray-300  border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Digital Marketing</a></li>
                 <li><a href="#" className="block px-11 py-3 text-black bg-gray-300 border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Offline Marketting</a></li>
                 <li><a href="#" className="block px-11 py-3 text-black bg-gray-300 border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Hiring Sels Team</a></li>
-              </ul>
+              </ul> */}
             </li>
-            <li><a href="#" className="flex px-4 py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Our Client</a></li>
-            <li><a href="#" className="flex px-4 py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Our Team</a></li>
-            <li><a href="#" className="flex px-4 py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Contact</a></li>
+            <li><a href="#client" onClick={toggleMenu} className="flex px-4 py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Our Client</a></li>
+            <li><a href="#team" onClick={toggleMenu} className="flex px-4 py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Our Team</a></li>
+            <li><a href="#contact" onClick={toggleMenu} className="flex px-4 py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Contact</a></li>
           </ul>
         </nav>
       </header>
