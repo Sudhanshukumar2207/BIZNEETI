@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Input from "./input";
 import Textarea from "./textarea";
+import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 
 function Contact() {
+  const [loding , setLoding] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,6 +19,8 @@ function Contact() {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  
+    setLoding(true);
 
   const scriptURL =
     "https://script.google.com/macros/s/AKfycbwIZ3rqlMY0H21L1J3lK_nWtffs1itcp5145nMiPmQ-KQWaazjYFES1BeQDUlRuxYHvaQ/exec";
@@ -25,23 +29,24 @@ const handleSubmit = async (e) => {
     const response = await fetch(scriptURL+`?name=${form.name}&email=${form.email}&number=${form.number}&message=${form.message}`, {
       method: "GET",
     });
-
     if (response.ok) {
-      alert("Form submitted successfully!");
+      toast.success("Form submitted successfully!");
       setForm({ name: "", email: "", number: "", message: "" });
     } else {
-      alert("Something went wrong!");
+      toast.error("Something went wrong!");
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("Error submitting form!");
+    toast.error("Error submitting form!");
+  } finally {
+    setLoding(false);
   }
 };
 
 
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center min-h-screen bg-gray-100">
+    <div id="contact" className="flex flex-col lg:flex-row justify-center items-center min-h-screen bg-gray-100">
       <div className="m-8 pt-5 bg-white shadow-md rounded-md">
         <h1 className="text-center text-xl font-semibold mb-4">Contact Us</h1>
         <form onSubmit={handleSubmit} className="p-8">
@@ -49,8 +54,8 @@ const handleSubmit = async (e) => {
           <Input label="Email" name="email" value={form.email} onChange={handleChange} type="email" />
           <Input label="Number" name="number" value={form.number} onChange={handleChange} type="text" inputMode="numeric" />
           <Textarea label="Message" name="message" value={form.message} onChange={handleChange} rows="4" />
-          <Button type="submit" className="w-full bg-indigo-600 text-white hover:bg-indigo-700 transition-colors duration-300">
-            Submit
+          <Button type="submit" className="w-full cursor-pointer bg-indigo-600 text-white hover:bg-indigo-700 transition-colors duration-300">
+            {loding ? "Submitting..." : "Submit"  }
           </Button>
         </form>
       </div>

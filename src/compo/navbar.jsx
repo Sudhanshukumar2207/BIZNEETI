@@ -46,8 +46,8 @@ const NavigationMenu = () => {
 
   return (
     <div >
-      <header className="absolute top-0 left-0 w-full z-50">
-        <div className="w-screen ">
+      <header className="w-full fixed top-0 z-50 bg-white shadow-md transition-all duration-300">
+        <div className="w-full ">
           <div className="bg-gray-300 flex justify-between items-center py-2.5">
             {/* Logo */}
             <div className="px-4">
@@ -60,23 +60,23 @@ const NavigationMenu = () => {
             {/* Desktop Navigation */}
             <nav className="hidden lg:block px-4 pr-20">
               <ul className="flex space-x-10">
-                <li><a href="#" className="block py-3 text-black font-semibold hover:text-pink-600  transition-colors duration-300">Home</a></li>
-                <li><a href="#" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">About Us</a></li>
+                <li><a href="#home" className="block py-3 text-black font-semibold hover:text-pink-600  transition-colors duration-300">Home</a></li>
+                <li><a href="#aboutus" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">About Us</a></li>
                 <li className="relative group">
-                  <a href="#" className="flex items-center py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">
+                  <a href="#service" className="flex items-center py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">
                     Service
-                    <PlusIcon isOpen={false} className="group-hover:text-pink-600" />
+                    {/* <PlusIcon isOpen={false} className="group-hover:text-pink-600" /> */}
                   </a>
-                  <ul className="absolute left-0 top-full w-56 bg-white shadow-lg border-t-2 border-pink-600 py-2.5 opacity-0 invisible transform translate-y-2.5 transition-all duration-400 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+                  {/* <ul className="absolute left-0 top-full w-56 bg-white shadow-lg border-t-2 border-pink-600 py-2.5 opacity-0 invisible transform translate-y-2.5 transition-all duration-400 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
                     <li><a href="#" className="block px-5 py-2.5 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Business Solution</a></li>
                     <li><a href="#" className="block px-5 py-2.5 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Digital Marketing</a></li>
                     <li><a href="#" className="block px-5 py-2.5 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Offline Marketting</a></li>
                     <li><a href="#" className="block px-5 py-2.5 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Hiring Sels Team</a></li>
-                  </ul>
+                  </ul> */}
                 </li>
-                <li><a href="#" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Our Client</a></li>
-                <li><a href="#" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Our Team</a></li>
-                <li><a href="#" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Contact</a></li>
+                <li><a href="#client" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Our Client</a></li>
+                <li><a href="#team" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Our Team</a></li>
+                <li><a href="#contact" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Contact</a></li>
               </ul>
             </nav>
 

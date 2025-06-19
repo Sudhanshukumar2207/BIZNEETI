@@ -6,17 +6,27 @@ import NavigationMenu from './compo/navbar'
 import Slider from './compo/corosal'
 import Aboutus from './compo/aboutus'
 import Contact from './compo/contact'
+import Footer from './compo/footer'
+import Team from './compo/team'
+import Clients from './compo/client'
+import Services from './compo/service'
+import { Toaster } from 'react-hot-toast'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     < >
-    <div className='overflow-hidden h-auto absolute left-0 top-0 right-0'>
-
+    <div className='overflow-hidden h-auto absolute left-0 top-0 right-0 scroll-smooth'>
+    <Toaster position="top-right" reverseOrder={false} />
     <NavigationMenu /><br />
     <Slider />
     <Aboutus />
+    <Services />
+    <Clients />
+    <Team />
     <Contact />
+    <Footer />
+
     </div>
     </>
   )
