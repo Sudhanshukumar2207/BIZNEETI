@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    // ...
+  },
+    // Include the src directory
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+
+  // Exclude node_modules and dist directories
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
