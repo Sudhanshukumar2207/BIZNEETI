@@ -52,7 +52,7 @@ const handleSubmit = async (e) => {
         <form onSubmit={handleSubmit} className="p-8">
           <Input label="Name" name="name" value={form.name} onChange={handleChange} type="text" />
           <Input label="Email" name="email" value={form.email} onChange={handleChange} type="email" />
-          <Input label="Number" name="number" value={form.number} onChange={handleChange} type="text" inputMode="numeric" />
+          <Input label="Number" name="number" value={form.number} onChange={handleChange} type="text" inputmode="numeric" />
           <Textarea label="Message" name="message" value={form.message} onChange={handleChange} rows="4" />
           <Button type="submit" className="w-full cursor-pointer bg-indigo-600 text-white hover:bg-indigo-700 transition-colors duration-300">
             {loding ? "Submitting..." : "Submit"  }
