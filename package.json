@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ionic/react": "^8.6.2",
     "@radix-ui/react-navigation-menu": "^1.2.13",
     "@radix-ui/react-slot": "^1.2.3",
     "@react-three/drei": "^10.3.0",
@@ -21,6 +22,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.18.1",
     "gsap": "^3.13.0",
+    "ionicons": "^8.0.9",
     "lucide-react": "^0.517.0",
     "meshline": "^3.3.1",
     "ogl": "^1.0.11",

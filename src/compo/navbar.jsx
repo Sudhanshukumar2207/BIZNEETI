@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const NavigationMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  // const [isFullscreen, setIsFullscreen] = useState(false);
+  // const [activeSubmenu, setActiveSubmenu] = useState(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -15,34 +16,43 @@ const NavigationMenu = () => {
 
 
   // Handle window resize
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 991) {
-        setIsMenuOpen(false);
-        setActiveSubmenu(null);
-      }
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth > 991) {
+  //       setIsMenuOpen(false);
+  //       setActiveSubmenu(null);
+  //     }
+  //   };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
 
   // Handle fullscreen change
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
-    };
+  // useEffect(() => {
+  //   const handleFullscreenChange = () => {
+  //     setIsFullscreen(!!document.fullscreenElement);
+  //   };
 
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
-  }, []);
+  //   document.addEventListener('fullscreenchange', handleFullscreenChange);
+  //   return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  // }, []);
 
-  const PlusIcon = ({ isOpen, className = "" }) => (
-    <div className={`inline-block h-3 w-3 relative ml-1 ${className}`}>
-      <div className={`absolute left-1/2 top-1/2 w-full h-0.5 bg-current transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300`} />
-      <div className={`absolute left-1/2 top-1/2 w-full h-0.5 bg-current transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${isOpen ? 'rotate-0' : '-rotate-90'}`} />
-    </div>
-  );
+  const navItems = [
+    { name: 'Home', href: '#home' },
+    { name: 'About Us', href: '#aboutus' },
+    { name: 'Service', href: '#service' },
+    { name: 'Our Client', href: '#client' },
+    { name: 'Our Team', href: '#team' },
+    { name: 'Contact', href: '#contact' }
+  ];
+
+  // const PlusIcon = ({ isOpen, className = "" }) => (
+  //   <div className={`inline-block h-3 w-3 relative ml-1 ${className}`}>
+  //     <div className={`absolute left-1/2 top-1/2 w-full h-0.5 bg-current transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300`} />
+  //     <div className={`absolute left-1/2 top-1/2 w-full h-0.5 bg-current transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${isOpen ? 'rotate-0' : '-rotate-90'}`} />
+  //   </div>
+  // );
 
   return (
     <div >
@@ -58,38 +68,34 @@ const NavigationMenu = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:block px-4 pr-20">
-              <ul className="flex space-x-10">
-                <li><a href="#home" className="block py-3 text-black font-semibold hover:text-pink-600  transition-colors duration-300">Home</a></li>
-                <li><a href="#aboutus" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">About Us</a></li>
-                <li className="relative group">
-                  <a href="#service" className="flex items-center py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">
-                    Service
-                    {/* <PlusIcon isOpen={false} className="group-hover:text-pink-600" /> */}
-                  </a>
-                  {/* <ul className="absolute left-0 top-full w-56 bg-white shadow-lg border-t-2 border-pink-600 py-2.5 opacity-0 invisible transform translate-y-2.5 transition-all duration-400 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
-                    <li><a href="#" className="block px-5 py-2.5 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Business Solution</a></li>
-                    <li><a href="#" className="block px-5 py-2.5 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Digital Marketing</a></li>
-                    <li><a href="#" className="block px-5 py-2.5 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Offline Marketting</a></li>
-                    <li><a href="#" className="block px-5 py-2.5 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Hiring Sels Team</a></li>
-                  </ul> */}
-                </li>
-                <li><a href="#client" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Our Client</a></li>
-                <li><a href="#team" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Our Team</a></li>
-                <li><a href="#contact" className="block py-3 text-black font-semibold hover:text-pink-600 transition-colors duration-300">Contact</a></li>
-              </ul>
+            <nav className="hidden lg:block px-4 -mt-5 pr-20 ">.
+            <ul className="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
+              {navItems.map(
+                (item, index) => (
+                  <li
+                    key={index}
+                    className="relative max-w-fit py-1 -mt-2
+                      after:content-[''] after:block after:absolute
+                      after:bottom-0 after:left-0 after:h-1 after:w-0
+                      after:bg-gradient-to-r after:from-[#2b68e0] after:to-[#e710ea]
+                      hover:after:w-full after:transition-all after:duration-300"
+                  >
+                    <a href={item.href} className="pr-3 md:pr-0 text-black">
+                      <b>{item.name}</b>
+                    </a>
+                  </li>
+                )
+              )}
+            </ul>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden flex items-center justify-center w-10 h-8 mr-4 cursor-pointer"
-              onClick={toggleMenu}
-            >
-              <span className="block w-6 h-0.5 bg-black relative">
-                <span className="absolute left-0 w-full h-full bg-black -top-1.5"></span>
-                <span className="absolute left-0 w-full h-full bg-black top-1.5"></span>
-              </span>
-            </button>
+            <div className="text-[30px] mr-5 cursor-pointer md:hidden text-black">
+              {isMenuOpen ? (
+                <></>
+              ) : (
+                <FaBars onClick={toggleMenu} />
+              )}
+            </div>
           </div>
         </div>
 
@@ -112,31 +118,24 @@ const NavigationMenu = () => {
             <span className="text-black text-xl"><b>X</b></span>
           </button>
 
-          <ul>
-            <li><a href="#home" onClick={toggleMenu} className="px-4 flex py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Home</a></li>
-            <li><a href="#aboutus" onClick={toggleMenu} className="px-4 flex py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">About Us</a></li>
-            <li>
-              {/* <button
-                className="w-full flex justify-between items-center cursor-pointer px-4 py-3 text-white border-b border-gray-600 text-left hover:text-pink-600 transition-colors duration-300"
-                onClick={() => toggleSubmenu('pages')}
-              > */}
-              <a href="#service" onClick={toggleMenu} className="px-4 flex py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Service</a>
-                
-                {/* <PlusIcon isOpen={activeSubmenu === 'pages'} />
-              </button> */}
-              {/* <ul className={`bg-transparent overflow-hidden transition-all duration-500 ${
-                activeSubmenu === 'pages' ? 'max-h-96' : 'max-h-0'
-              }`}>
-                <li><a href="#" className="block px-11 py-3 text-black bg-gray-300 border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Business Solution</a></li>
-                <li><a href="#" className="block px-11 py-3 text-black bg-gray-300  border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Digital Marketing</a></li>
-                <li><a href="#" className="block px-11 py-3 text-black bg-gray-300 border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Offline Marketting</a></li>
-                <li><a href="#" className="block px-11 py-3 text-black bg-gray-300 border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Hiring Sels Team</a></li>
-              </ul> */}
-            </li>
-            <li><a href="#client" onClick={toggleMenu} className="flex px-4 py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Our Client</a></li>
-            <li><a href="#team" onClick={toggleMenu} className="flex px-4 py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Our Team</a></li>
-            <li><a href="#contact" onClick={toggleMenu} className="flex px-4 py-3 text-white border-b border-gray-600 hover:text-pink-600 transition-colors duration-300">Contact</a></li>
-          </ul>
+        <ul className="flex pl-5 md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
+              {navItems.map(
+                (item, index) => (
+                  <li onClick={toggleMenu}
+                    key={index}
+                    className="relative max-w-fit py-1 
+                      after:content-[''] after:block after:absolute
+                      after:bottom-0 after:left-0 after:h-1 after:w-0
+                      after:bg-gradient-to-r after:from-[#2b68e0] after:to-[#e710ea]
+                      hover:after:w-full after:transition-all after:duration-300"
+                  >
+                    <a href={item.href} className="pr-3 md:pr-0 text-white">
+                      <b>{item.name}</b>
+                    </a>
+                  </li>
+                )
+              )}
+            </ul>
         </nav>
       </header>
 
