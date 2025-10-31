@@ -62,8 +62,8 @@ const NavigationMenu = () => {
             {/* Logo */}
             <div className="px-4">
               <a href="#" className="text-2xl flex lg:text-3xl uppercase text-pink-600 font-semibold">
-                <img className='h-10' src="BIZNEETI-LOGO1.png" alt="loding..." />
-                <img className='h-10' src="BIZNEETI-LOGO2.png" alt="loding..." />
+                {/* <img className='h-10' src="BIZNEETI-LOGO1.png" alt="loding..." /> */}
+                <img className='h-10' src="BIZNEETI-LOGO.png" alt="loding..." />
               </a>
             </div>
 

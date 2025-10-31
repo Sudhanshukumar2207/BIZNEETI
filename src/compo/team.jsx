@@ -4,7 +4,7 @@ import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 const teamMembers = [
   {
     name: "Himanshu Kumar",
-    role: "Full Stack Developer",
+    role: "Co Founder & CEO",
     image: "himanshu.jpg", // Replace with real image URL
     linkedin: "#",
     github: "#",
@@ -12,23 +12,7 @@ const teamMembers = [
   },
   {
     name: "Aryan",
-    role: "UI/UX Designer",
-    image: "aryan.jpg", // Replace with real image URL
-    linkedin: "#",
-    github: "#",
-    twitter: "#",
-  },
-  {
-    name: "Himanshu Kumar",
-    role: "Full Stack Developer",
-    image: "himanshu.jpg", // Replace with real image URL
-    linkedin: "#",
-    github: "#",
-    twitter: "#",
-  },
-  {
-    name: "Aryan",
-    role: "UI/UX Designer",
+    role: "Co Founder & CMO",
     image: "aryan.jpg", // Replace with real image URL
     linkedin: "#",
     github: "#",
@@ -40,7 +24,7 @@ const Team = () => {
   return (
     <div id="team" className="bg-gray-100 py-12">
       <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Meet Our Team</h2>
+        <h2 className="text-4xl font-bold text-gray-800 mb-4">Meet Founder</h2>
         <p className="text-gray-600 mb-10">
           The talented minds behind our success.
         </p>
