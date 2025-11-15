@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -10,4 +10,1731 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
+</html> -->
+
+
+
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bizneeti - Digital Marketing Agency</title>
+  <link rel="icon" type="image/.png" href="/BIZNEETI-LOGO1.png">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #f7f7f7 0%, #e8e8e8 50%, #f0f0f0 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite linear;
+        }
+
+        .floating-circle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-circle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        .floating-circle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            left: 20%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 1; }
+            100% { transform: translateY(0px) rotate(360deg); opacity: 0.7; }
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #E75125, #E75125);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(231, 81, 37, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(135deg, #E75125, #E75125);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu a:hover {
+            color: #E75125;
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #E75125, #E75125);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 25px rgba(231, 81, 37, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(231, 81, 37, 0.6);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(231, 81, 37, 0.3), rgba(231, 81, 37, 0.3));
+            z-index: -1;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            color: #2d3748;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out;
+            line-height: 1.1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slogan {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #E75125, #E75125);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-shadow: 0 4px 16px rgba(231, 81, 37, 0.4);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            color: #4a5568;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #E75125, #E75125);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 12px 40px rgba(231, 81, 37, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 50px rgba(231, 81, 37, 0.6);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: -1;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text h3 {
+            background: linear-gradient(135deg, #E75125, #E75125);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .mission-highlight {
+            background: rgba(231, 81, 37, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(231, 81, 37, 0.2);
+            margin-top: 2rem;
+            box-shadow: 0 8px 32px rgba(231, 81, 37, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .mission-highlight:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(231, 81, 37, 0.2);
+        }
+
+        .mission-highlight h4 {
+            background: linear-gradient(135deg, #E75125, #E75125);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .mission-highlight p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #E75125, #E75125);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+        }
+
+        .stat-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #E75125, #E75125);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 4rem;
+            color: #2d3748;
+            font-weight: 800;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            border-color: rgba(231, 81, 37, 0.3);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #E75125, #E75125);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 25px rgba(231, 81, 37, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 35px rgba(231, 81, 37, 0.6);
+        }
+
+        .service-card h3 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1rem;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        .gallery-subtitle {
+            text-align: center;
+            color: #4a5568;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #2d3748;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #E75125, #E75125);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(231, 81, 37, 0.4);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        .gallery-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            border-color: rgba(231, 81, 37, 0.3);
+        }
+
+        .gallery-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f7f7f7, #e8e8e8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-card:hover .placeholder-image {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            color: white;
+        }
+
+        .image-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-text {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .gallery-content {
+            padding: 2rem;
+        }
+
+        .gallery-content h4 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .gallery-content p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .gallery-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 107, 53, 0.1);
+            color: #FF6B35;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        /* Team Section */
+        .team {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        .team::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: -1;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .team-row-2 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            grid-column: 1 / -1;
+        }
+
+        .team-card.small {
+            padding: 2rem 1.5rem;
+        }
+
+        .team-card.small .team-avatar {
+            width: 100px;
+            height: 100px;
+            font-size: 2rem;
+        }
+
+        .team-card.small h3 {
+            font-size: 1.1rem;
+        }
+
+        .team-card.small .team-title {
+            font-size: 0.9rem;
+        }
+
+        .team-card.small .team-bio {
+            font-size: 0.85rem;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #E75125, #E75125);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .team-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #E75125, #E75125);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 800;
+            box-shadow: 0 8px 25px rgba(231, 81, 37, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .team-avatar.has-photo {
+            background: #f0f0f0;
+        }
+
+        .team-card:hover .team-avatar {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(231, 81, 37, 0.6);
+        }
+
+        .team-card h3 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .team-title {
+            background: linear-gradient(135deg, #E75125, #E75125);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .team-bio {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .client-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .client-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .client-logo {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            border-radius: 15px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .client-card:hover .client-logo {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        .client-card h4 {
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            color: white;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.9), rgba(26, 32, 44, 0.9));
+            z-index: -1;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info h3 {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        .contact-form h3 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF6B35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+        }
+
+        .form-group textarea {
+            height: 140px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .services-grid,
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-row-2 {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Animated Background -->
+  <div class="bg-animation"></div>
+  <div class="floating-elements">
+   <div class="floating-circle"></div>
+   <div class="floating-circle"></div>
+   <div class="floating-circle"></div>
+  </div><!-- Header -->
+  <header class="header">
+   <nav class="nav-container">
+    <div style="width: 200px;" class="logo" id="company-name">
+    <img style="width: 100%;" src="/BIZNEETI-LOGO.png" alt="Bizneeti">
+    </div>
+    <ul class="nav-menu">
+     <li><a href="#home">Home</a></li>
+     <li><a href="#about">About</a></li>
+     <li><a href="#services">Services</a></li>
+     <li><a href="#team">Team</a></li>
+     <li><a href="#gallery">Gallery</a></li>
+     <li><a href="#clients">Clients</a></li>
+     <li><a href="#contact">Contact</a></li>
+    </ul><a href="#contact" class="cta-button">Get Started</a> <button class="mobile-menu-toggle">☰</button>
+   </nav>
+  </header><!-- Hero Section -->
+  <section id="home" class="hero">
+   <div class="hero-container">
+    <h1 id="hero-title">Transform Your Digital Presence</h1>
+    <div class="slogan">
+     Your Vision, Our Mission
+    </div>
+    <p id="hero-subtitle">We help businesses grow through strategic digital marketing solutions that drive real results and maximize ROI</p>
+    <div class="hero-buttons"><button class="btn-primary" onclick="scrollToSection('contact')">Start Your Journey</button> <button class="btn-secondary" onclick="scrollToSection('services')">Our Services</button>
+    </div>
+   </div>
+  </section><!-- About Section -->
+  <section id="about" class="about">
+   <div class="container">
+    <h2 class="section-title">About Bizneeti</h2>
+    <div class="about-content">
+     <div class="about-text">
+      <h3>Empowering Business Growth Through Strategic Solutions</h3>
+      <p>Bizneeti Services Pvt. Ltd. is a leading business solutions provider specialising in sales and marketing with a strong focus on digital marketing, sales personnel hiring, and training. Our mission is to empower businesses with result-driven strategies that fuel growth and success.</p>
+      <p>We understand that many businesses have great products or services, but due to weak sales and marketing execution, they struggle to scale. That's where we come in! Our expertise lies in creating tailored strategies that help businesses achieve consistent revenue growth.</p>
+      <div class="mission-highlight">
+       <h4>Our Mission</h4>
+       <p>To bridge the gap between great products and market success by providing comprehensive sales and marketing solutions that drive measurable results.</p>
+      </div>
+     </div>
+     <div class="about-stats">
+      <div class="stat-item">
+       <div class="stat-number">
+        20+
+       </div>
+       <div class="stat-label">
+        Businesses Transformed
+       </div>
+      </div>
+      <div class="stat-item">
+       <div class="stat-number">
+        95%
+       </div>
+       <div class="stat-label">
+        Client Success Rate
+       </div>
+      </div>
+      <div class="stat-item">
+       <div class="stat-number">
+        4+
+       </div>
+       <div class="stat-label">
+        Years Experience
+       </div>
+      </div>
+      <div class="stat-item">
+       <div class="stat-number">
+        24/7
+       </div>
+       <div class="stat-label">
+        Support Available
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Services Section -->
+  <section id="services" class="services">
+   <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+     <div class="service-card">
+      <div class="service-icon">
+       📱
+      </div>
+      <h3>Social Media Management</h3>
+      <p>Complete social media handling including content creation, posting schedules, community management, and engagement strategies across all platforms.</p>
+     </div>
+     <div class="service-card">
+      <div class="service-icon">
+       🌐
+      </div>
+      <h3>Website Design &amp; Development</h3>
+      <p>Custom website design and development that converts visitors into customers with responsive design and optimized user experience.</p>
+     </div>
+     <div class="service-card">
+      <div class="service-icon">
+       📊
+      </div>
+      <h3>Performance Marketing</h3>
+      <p>Data-driven advertising campaigns across Google Ads, Facebook Ads, and other platforms to maximize your return on ad spend.</p>
+     </div>
+     <div class="service-card">
+      <div class="service-icon">
+       🎯
+      </div>
+      <h3>Lead Generation</h3>
+      <p>Strategic lead generation campaigns that attract qualified prospects and convert them into paying customers for your business.</p>
+     </div>
+     <div class="service-card">
+      <div class="service-icon">
+       🔍
+      </div>
+      <h3>Search Engine Optimization</h3>
+      <p>Comprehensive SEO strategies to improve your website's visibility and ranking on search engines, driving organic traffic.</p>
+     </div>
+     <div class="service-card">
+      <div class="service-icon">
+       👥
+      </div>
+      <h3>Sales Hiring &amp; Training</h3>
+      <p>Expert sales team recruitment and comprehensive training programs to build high-performing sales organizations.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Team Section -->
+  <section id="team" class="team">
+   <div class="container">
+    <h2 class="section-title">Meet Our Team</h2>
+    <div class="team-grid"><!-- First Row - 2 Big Cards -->
+     <div class="team-card">
+      <div class="team-avatar" id="team1-avatar">
+       <img src="Bizneeti Wordmark (2).png" alt="">
+      </div>
+      <h3 id="team1-name">Himanshu Kumar</h3>
+      <p class="team-title" id="team1-title">Co-Founder</p>
+      <p class="team-bio">Focused on business growth and sales training, helping teams perform better with smart, results-driven strategies.</p>
+     </div>
+     <div class="team-card">
+      <div class="team-avatar" id="team2-avatar">
+       AV
+      </div>
+      <h3 id="team2-name">Aryan Vaivhav</h3>
+      <p class="team-title" id="team2-title">Co-Founder</p>
+      <p class="team-bio">Passionate about tech and marketing, creating simple and effective solutions that deliver real results.</p>
+     </div><!-- Second Row - 4 Small Cards -->
+     <div class="team-row-2">
+      <div class="team-card small">
+       <div class="team-avatar" id="team3-avatar">
+        RB
+       </div>
+       <h3 id="team3-name">Ritika Bhagat</h3>
+       <p class="team-title" id="team3-title">Video Editor</p>
+       <p class="team-bio">Creative video editor skilled in crafting engaging visuals and smooth storytelling to bring ideas to life.</p>
+      </div>
+      <div class="team-card small">
+       <div class="team-avatar" id="team4-avatar">
+        KT
+       </div>
+       <h3 id="team4-name">Keshar Tirkey</h3>
+       <p class="team-title" id="team4-title">Operation Manager</p>
+       <p class="team-bio">Efficient operations leader focused on smooth workflows, team coordination, and delivering consistent, high-quality results.</p>
+      </div>
+      <div class="team-card small">
+       <div class="team-avatar" id="team5-avatar">
+        PP
+       </div>
+       <h3 id="team5-name">Prashant Prabhakar</h3>
+       <p class="team-title" id="team5-title">Social Media Manager</p>
+       <p class="team-bio">Creative social media specialist focused on building strong online presence, engaging audiences, and driving impactful brand growth.</p>
+      </div>
+      <div class="team-card small">
+       <div class="team-avatar" id="team6-avatar">
+        AK
+       </div>
+       <h3 id="team6-name">Arman Kumar</h3>
+       <p class="team-title" id="team6-title">Graphic Designer</p>
+       <p class="team-bio">Creative designer skilled in crafting visually appealing graphics, branding assets, and compelling designs that elevate brand identity.</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Gallery Section -->
+  <section id="gallery" class="gallery">
+   <div class="container">
+    <h2 class="section-title">Our Work Gallery</h2>
+    <p class="gallery-subtitle">Showcasing our creative projects and successful campaigns</p>
+    <div class="gallery-filters"><button class="filter-btn active" data-filter="all">All Projects</button> <button class="filter-btn" data-filter="social-media">Social Media</button> <button class="filter-btn" data-filter="websites">Websites</button> <button class="filter-btn" data-filter="branding">Branding</button> <button class="filter-btn" data-filter="campaigns">Campaigns</button>
+    </div>
+    <div class="gallery-grid">
+     <div class="gallery-item" data-category="social-media">
+      <div class="gallery-card">
+       <div class="gallery-image">
+        <div class="placeholder-image">
+         <div class="image-icon">
+          📱
+         </div>
+         <div class="image-text">
+          Social Media Campaign
+         </div>
+        </div>
+       </div>
+       <div class="gallery-content">
+        <h4>Instagram Growth Campaign</h4>
+        <p>Increased follower engagement by 300% for Tradeneeti Academy</p>
+        <div class="gallery-tags"><span class="tag">Social Media</span> <span class="tag">Content Strategy</span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="gallery-item" data-category="websites">
+      <div class="gallery-card">
+       <div class="gallery-image">
+        <div class="placeholder-image">
+         <div class="image-icon">
+          🌐
+         </div>
+         <div class="image-text">
+          Website Design
+         </div>
+        </div>
+       </div>
+       <div class="gallery-content">
+        <h4>Bluefin Academy Website</h4>
+        <p>Modern, responsive website with 40% improved conversion rate</p>
+        <div class="gallery-tags"><span class="tag">Web Design</span> <span class="tag">UX/UI</span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="gallery-item" data-category="branding">
+      <div class="gallery-card">
+       <div class="gallery-image">
+        <div class="placeholder-image">
+         <div class="image-icon">
+          🎨
+         </div>
+         <div class="image-text">
+          Brand Identity
+         </div>
+        </div>
+       </div>
+       <div class="gallery-content">
+        <h4>Fudloo Brand Identity</h4>
+        <p>Complete brand makeover with logo, colors, and visual guidelines</p>
+        <div class="gallery-tags"><span class="tag">Branding</span> <span class="tag">Logo Design</span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="gallery-item" data-category="campaigns">
+      <div class="gallery-card">
+       <div class="gallery-image">
+        <div class="placeholder-image">
+         <div class="image-icon">
+          📊
+         </div>
+         <div class="image-text">
+          Ad Campaign
+         </div>
+        </div>
+       </div>
+       <div class="gallery-content">
+        <h4>Buildora Homes Lead Gen</h4>
+        <p>Generated 150+ qualified leads with 25% lower cost per lead</p>
+        <div class="gallery-tags"><span class="tag">Performance Marketing</span> <span class="tag">Lead Generation</span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="gallery-item" data-category="social-media">
+      <div class="gallery-card">
+       <div class="gallery-image">
+        <div class="placeholder-image">
+         <div class="image-icon">
+          🎬
+         </div>
+         <div class="image-text">
+          Video Content
+         </div>
+        </div>
+       </div>
+       <div class="gallery-content">
+        <h4>Mithilawashi Cafe Videos</h4>
+        <p>Engaging video content that boosted brand awareness by 200%</p>
+        <div class="gallery-tags"><span class="tag">Video Marketing</span> <span class="tag">Content Creation</span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="gallery-item" data-category="websites">
+      <div class="gallery-card">
+       <div class="gallery-image">
+        <div class="placeholder-image">
+         <div class="image-icon">
+          💼
+         </div>
+         <div class="image-text">
+          E-commerce Site
+         </div>
+        </div>
+       </div>
+       <div class="gallery-content">
+        <h4>Rays Edutech Platform</h4>
+        <p>Custom learning management system with seamless user experience</p>
+        <div class="gallery-tags"><span class="tag">Web Development</span> <span class="tag">E-learning</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Clients Section -->
+  <section id="clients" class="clients">
+   <div class="container">
+    <h2 class="section-title">Our Trusted Clients</h2>
+    <div class="clients-grid">
+     <div class="client-card">
+      <div class="client-logo">
+       TA
+      </div>
+      <h4>Tradeneeti Academy</h4>
+     </div>
+     <div class="client-card">
+      <div class="client-logo">
+       BA
+      </div>
+      <h4>Bluefin Academy</h4>
+     </div>
+     <div class="client-card">
+      <div class="client-logo">
+       RE
+      </div>
+      <h4>Rays Edutech</h4>
+     </div>
+     <div class="client-card">
+      <div class="client-logo">
+       FL
+      </div>
+      <h4>Fudloo</h4>
+     </div>
+     <div class="client-card">
+      <div class="client-logo">
+       BH
+      </div>
+      <h4>Buildora Homes</h4>
+     </div>
+     <div class="client-card">
+      <div class="client-logo">
+       MC
+      </div>
+      <h4>Mithilawashi Cafe</h4>
+     </div>
+    </div>
+   </div>
+  </section><!-- Contact Section -->
+  <section id="contact" class="contact">
+   <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-content">
+     <div class="contact-info">
+      <h3>Ready to Grow Your Business?</h3>
+      <p>Let's discuss how we can help transform your digital presence and drive real results for your business.</p><br>
+      <p><strong>Email:</strong> <span id="contact-email">hello@bizneeti.com</span></p>
+      <p><strong>Phone:</strong> <span id="contact-phone">+1 (555) 123-4567</span></p>
+      <p><strong>Response Time:</strong> Within 24 hours</p>
+     </div>
+     <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <form id="contact-form">
+       <div class="form-group"><label for="name">Full Name</label> <input type="text" id="name" name="name" required>
+       </div>
+       <div class="form-group"><label for="email">Email Address</label> <input type="email" id="email" name="email" required>
+       </div>
+       <div class="form-group"><label for="company">Company Name</label> <input type="text" id="company" name="company">
+       </div>
+       <div class="form-group"><label for="message">Message</label> <textarea id="message" name="message" placeholder="Tell us about your project and goals..." required></textarea>
+       </div><button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+      </form>
+     </div>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="footer">
+   <div class="container">
+    <p>© 2024 <span id="footer-company">Bizneeti</span>. All rights reserved. | Transforming businesses through digital excellence.</p>
+   </div>
+  </footer>
+  <script>
+        const defaultConfig = {
+            company_name: "Bizneeti",
+            hero_title: "Transform Your Digital Presence",
+            hero_subtitle: "We help businesses grow through strategic digital marketing solutions that drive real results and maximize ROI",
+            team1_name: "Himanshu Kumar",
+            team1_title: "Co-Founder",
+            team1_photo: "",
+            team2_name: "Aryan Vaivhav",
+            team2_title: "Co-Founder",
+            team2_photo: "",
+            team3_name: "Ritika Bhagat",
+            team3_title: "Video Editor",
+            team3_photo: "",
+            team4_name: "Keshar Tirkey",
+            team4_title: "Operation Manager",
+            team4_photo: "",
+            team5_name: "Prashant Prabhakar",
+            team5_title: "Social Media Manager",
+            team5_photo: "",
+            team6_name: "Arman Kumar",
+            team6_title: "Graphic Designer",
+            team6_photo: "",
+            contact_email: "bizneetiservices@gmail.com",
+            contact_phone: "7870646277"
+        };
+
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const company = formData.get('company');
+            const message = formData.get('message');
+            
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Message Sent!';
+            button.style.background = '#28a745';
+            
+            // Reset form
+            this.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '#FF6B35';
+            }, 3000);
+        });
+
+        // Update team avatars based on names and photos
+        function updateTeamAvatars(config = {}) {
+            const getInitials = (name) => {
+                return name.split(' ').map(n => n[0]).join('').toUpperCase();
+            };
+            
+            for (let i = 1; i <= 6; i++) {
+                const teamName = document.getElementById(`team${i}-name`).textContent;
+                const avatarElement = document.getElementById(`team${i}-avatar`);
+                const photoUrl = config[`team${i}_photo`] || defaultConfig[`team${i}_photo`];
+                
+                // Clear existing content
+                avatarElement.innerHTML = '';
+                
+                if (photoUrl && photoUrl.trim() !== '') {
+                    // Show photo
+                    const img = document.createElement('img');
+                    img.src = photoUrl;
+                    img.alt = teamName;
+                    img.onerror = function() {
+                        // If image fails to load, show initials instead
+                        this.style.display = 'none';
+                        avatarElement.classList.remove('has-photo');
+                        avatarElement.textContent = getInitials(teamName);
+                    };
+                    img.onload = function() {
+                        avatarElement.classList.add('has-photo');
+                    };
+                    avatarElement.appendChild(img);
+                } else {
+                    // Show initials
+                    avatarElement.classList.remove('has-photo');
+                    avatarElement.textContent = getInitials(teamName);
+                }
+            }
+        }
+
+        // Element SDK implementation
+        async function onConfigChange(config) {
+            document.getElementById('company-name').textContent = config.company_name || defaultConfig.company_name;
+            document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+            document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+            
+            // Update all team members
+            for (let i = 1; i <= 6; i++) {
+                document.getElementById(`team${i}-name`).textContent = config[`team${i}_name`] || defaultConfig[`team${i}_name`];
+                document.getElementById(`team${i}-title`).textContent = config[`team${i}_title`] || defaultConfig[`team${i}_title`];
+            }
+            
+            document.getElementById('contact-email').textContent = config.contact_email || defaultConfig.contact_email;
+            document.getElementById('contact-phone').textContent = config.contact_phone || defaultConfig.contact_phone;
+            document.getElementById('footer-company').textContent = config.company_name || defaultConfig.company_name;
+            
+            updateTeamAvatars(config);
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["company_name", config.company_name || defaultConfig.company_name],
+                ["hero_title", config.hero_title || defaultConfig.hero_title],
+                ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+                ["team1_name", config.team1_name || defaultConfig.team1_name],
+                ["team1_title", config.team1_title || defaultConfig.team1_title],
+                ["team1_photo", config.team1_photo || defaultConfig.team1_photo],
+                ["team2_name", config.team2_name || defaultConfig.team2_name],
+                ["team2_title", config.team2_title || defaultConfig.team2_title],
+                ["team2_photo", config.team2_photo || defaultConfig.team2_photo],
+                ["team3_name", config.team3_name || defaultConfig.team3_name],
+                ["team3_title", config.team3_title || defaultConfig.team3_title],
+                ["team3_photo", config.team3_photo || defaultConfig.team3_photo],
+                ["team4_name", config.team4_name || defaultConfig.team4_name],
+                ["team4_title", config.team4_title || defaultConfig.team4_title],
+                ["team4_photo", config.team4_photo || defaultConfig.team4_photo],
+                ["team5_name", config.team5_name || defaultConfig.team5_name],
+                ["team5_title", config.team5_title || defaultConfig.team5_title],
+                ["team5_photo", config.team5_photo || defaultConfig.team5_photo],
+                ["team6_name", config.team6_name || defaultConfig.team6_name],
+                ["team6_title", config.team6_title || defaultConfig.team6_title],
+                ["team6_photo", config.team6_photo || defaultConfig.team6_photo],
+                ["contact_email", config.contact_email || defaultConfig.contact_email],
+                ["contact_phone", config.contact_phone || defaultConfig.contact_phone]
+            ]);
+        }
+
+        // Gallery filter functionality
+        function initGalleryFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || category === filterValue) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        }
+
+        // Initialize gallery filters
+        initGalleryFilters();
+
+        // Initialize team avatars
+        updateTeamAvatars();
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99eccf9ef3b26d2f',t:'MTc2MzE4OTM5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
